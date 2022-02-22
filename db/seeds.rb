@@ -74,20 +74,20 @@ Event.create(title: "Evénement #4",
 puts "  > 4 events created"
 
 # Creating and filling links between events and users attending
-Attendance.create(event_id: Event.all[0].id,
-                  attendee_id: User.all[1].id,
+Attendance.create(event_id: Event.first.id,
+                  attendee_id: User.second.id,
                   stripe_customer_id: "s0m3_R4nd0M_tExt_1")
 
-Attendance.create(event_id: Event.all[0].id,
+Attendance.create(event_id: Event.first.id,
                   attendee_id: User.all[2].id,
                   stripe_customer_id: "s0m3_R4nd0M_tExt_2")
 
-Attendance.create(event_id: Event.all[1].id,
-                  attendee_id: User.all[1].id,
+Attendance.create(event_id: Event.second.id,
+                  attendee_id: User.second.id,
                   stripe_customer_id: "s0m3_R4nd0M_tExt_3")
 
 Attendance.create(event_id: Event.all[2].id,
-                  attendee_id: User.all[0].id,
+                  attendee_id: User.first.id,
                   stripe_customer_id: "s0m3_R4nd0M_tExt_4")
 
 Attendance.create(event_id: Event.all[2].id,
@@ -95,7 +95,7 @@ Attendance.create(event_id: Event.all[2].id,
                   stripe_customer_id: "s0m3_R4nd0M_tExt_5")
 
 Attendance.create(event_id: Event.all[3].id,
-                  attendee_id: User.all[0].id,
+                  attendee_id: User.first.id,
                   stripe_customer_id: "s0m3_R4nd0M_tExt_6")
 
 Attendance.create(event_id: Event.all[3].id,
