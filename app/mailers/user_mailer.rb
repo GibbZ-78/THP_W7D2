@@ -18,7 +18,7 @@ class UserMailer < ApplicationMailer
     @my_promoter = param_promoter
     @my_attendee = param_attendee
     @my_event = param_event
-    mail(to: @my_promoter.mail, subject: "Nouvelle inscription à l'événement #{@my_event.title} du #{@my_event.start_date"})
+    mail(to: @my_promoter.mail, subject: "Nouvelle inscription à l'événement #{@my_event.title} du #{@my_event.start_date}")
   end
 
 end
