@@ -16,6 +16,7 @@ User.destroy_all
 puts "  > Users destroyed"
 
 puts "*** CREATION STAGE ***"
+puts "  > Creating & filling users"
 # Creating and filling 3 users
 User.create(first_name: "Jean-Baptiste",
             last_name: "VIDAL",
@@ -37,8 +38,9 @@ User.create(first_name: "Lucie",
             pwd: "THP_2022",
             age: "7",
             description: "La hija")
-puts "  > 3 users created"
+puts "  > #{User.count} users created"
 
+puts "  > Creating & filling events"
 # Creating and filling 4 events (2 by User "Jean-Baptiste", 1 by "Valérie-Anne", and 1 by "Lucie")
 Event.create(title: "Evénement #1",
              location: "Orléans",
@@ -46,15 +48,17 @@ Event.create(title: "Evénement #1",
              description: "Evénement de test organisé par Jean-Baptiste",
              price: 99,
              start_date: "2022-03-27",
-             promoter_id: User.all.first.id)   # Jean-Baptiste 
+             promoter_id: User.first.id)   # Jean-Baptiste 
+puts "    - Event nr. #{Event.last.id} OK (#{Event.last.nil?})"
 
 Event.create(title: "Evénement #2",
              location: "Saint-Denis-en-Val",
              duration: 2400,
              description: "Evénement de test (aussi) organisé par Jean-Baptiste",
-             price: 270378,
+             price: 666,
              start_date: "2022-12-25",
-             promoter_id: User.all.first.id)   # Jean-Baptiste 
+             promoter_id: User.first.id)   # Jean-Baptiste 
+puts "    - Event nr. #{Event.last.id} OK (#{Event.last.nil?})"
 
 Event.create(title: "Evénement #3",
              location: "Paris",
@@ -62,7 +66,8 @@ Event.create(title: "Evénement #3",
              description: "Evénement de test organisé par Valérie-Anne",
              price: 249,
              start_date: "2022-07-06",
-             promoter_id: User.all[1].id)   # Valérie-Anne
+             promoter_id: User.second.id)   # Valérie-Anne
+puts "    - Event nr. #{Event.last.id} OK (#{Event.last.nil?})"
 
 Event.create(title: "Evénement #4",
              location: "La chambre de Lucie",
@@ -70,37 +75,46 @@ Event.create(title: "Evénement #4",
              description: "Evénement de test organisé par Lucie",
              price: 9,
              start_date: "2022-07-03",
-             promoter_id: User.all.last.id)   # Lucie
-puts "  > 4 events created"
+             promoter_id: User.last.id)   # Lucie
+puts "    - Event nr. #{Event.last.id} OK (#{Event.last.nil?})"
+puts "  > #{Event.count} events created"
 
+puts "  > Creating & filling attendances"
 # Creating and filling links between events and users attending
 Attendance.create(event_id: Event.first.id,
                   attendee_id: User.second.id,
                   stripe_customer_id: "s0m3_R4nd0M_tExt_1")
+puts "    - Attendance 1 OK"
 
 Attendance.create(event_id: Event.first.id,
                   attendee_id: User.all[2].id,
                   stripe_customer_id: "s0m3_R4nd0M_tExt_2")
+puts "    - Attendance 2 OK"
 
 Attendance.create(event_id: Event.second.id,
                   attendee_id: User.second.id,
                   stripe_customer_id: "s0m3_R4nd0M_tExt_3")
+puts "    - Attendance 3 OK"
 
 Attendance.create(event_id: Event.all[2].id,
                   attendee_id: User.first.id,
                   stripe_customer_id: "s0m3_R4nd0M_tExt_4")
+puts "    - Attendance 4 OK"
 
 Attendance.create(event_id: Event.all[2].id,
                   attendee_id: User.all[2].id,
                   stripe_customer_id: "s0m3_R4nd0M_tExt_5")
+puts "    - Attendance 5 OK"
 
 Attendance.create(event_id: Event.all[3].id,
                   attendee_id: User.first.id,
                   stripe_customer_id: "s0m3_R4nd0M_tExt_6")
+puts "    - Attendance 6 OK"
 
 Attendance.create(event_id: Event.all[3].id,
                   attendee_id: User.all[2].id,
                   stripe_customer_id: "s0m3_R4nd0M_tExt_7")
-puts "  > Links between users and events created"
+puts "    - Attendance 7 OK"
+puts "  > #{Attendance.count} links between users and events created"
 
 # End of SEED

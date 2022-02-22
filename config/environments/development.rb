@@ -59,15 +59,18 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  # JBV - Enabling mails sendings from localhost / development environment
+  config.action_mailer.perform_deliveries = true
+  
   # JBV - Adding Sendgrid mailer configuration
   ActionMailer::Base.smtp_settings = {
                     :user_name => ENV['SENDGRID_LOGIN'],
                     :password => ENV['SENDGRID_PWD'],
-                    :domain => 'https://gibbz-event-hack.herokuapp.com/',
+                    :domain => 'localhost',
                     :address => 'smtp.sendgrid.net',
                     :port => 587,
                     :authentication => :plain,
-                    :enable_starttls_auto => true
+                    :enable_starttls_auto => false
   } 
 
 end
