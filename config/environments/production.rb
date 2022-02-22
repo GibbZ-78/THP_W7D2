@@ -91,4 +91,16 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # JBV - Adding Sendgrid mailer configuration
+  ActionMailer::Base.smtp_settings = {
+                    :user_name => ENV['SENDGRID_LOGIN'],
+                    :password => ENV['SENDGRID_PWD'],
+                    :domain => 'https://gibbz-event-hack.herokuapp.com/',
+                    :address => 'smtp.sendgrid.net',
+                    :port => 587,
+                    :authentication => :plain,
+                    :enable_starttls_auto => true
+  } 
+
 end

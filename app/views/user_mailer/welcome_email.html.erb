@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Salut <%=@user.first_name%> <%=@user.last_name%> et bienvenue sur Hack Event !</h1>
+    <p>
+      Tu t'es inscrit(e) sur <%=@url%> en utilisant l'e-mail suivant : <%= @user.mail %>.
+    </p>
+    <p>
+      Comme tu as <%=@user.age%> ans, tu as le droit de bénéficier de nos services.
+    </p>
+    <p>
+      Alors, pour accéder à ton espace client, connecte-toi vite via : <%= @url %>.
+    </p>
+    <p>
+      À très vite sur Event Hack !
+    </p>
+  </body>
+</html>
