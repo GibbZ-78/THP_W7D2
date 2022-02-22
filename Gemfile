@@ -64,4 +64,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # JBV - Adding useful gems
 gem 'faker'
 gem 'dotenv'
+gem 'devise'
 

@@ -95,6 +95,10 @@ Rails.application.configure do
   # JBV - Enabling mails sendings from localhost / development environment
   config.action_mailer.perform_deliveries = true
 
+  # JBV - Adding default URL to have "devise" gem work properly
+  #       WARNING: Uncomment once confirmed what HOST and PORT should be setup for production environment / Heroku...
+  #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # JBV - Adding Sendgrid mailer configuration
   ActionMailer::Base.smtp_settings = {
                     :user_name => ENV['SENDGRID_LOGIN'],

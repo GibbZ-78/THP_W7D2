@@ -20,22 +20,22 @@ puts "  > Creating & filling users"
 # Creating and filling 3 users
 User.create(first_name: "Jean-Baptiste",
             last_name: "VIDAL",
-            mail: "gibbz01@yopmail.com",
-            pwd: "THP_2022",
+            email: "gibbz01@yopmail.com",
+            password: "THP_2022",
             age: "43",
             description: "El padre")
 
 User.create(first_name: "Valérie-Anne",
             last_name: "DELAIDDE",
-            mail: "gibbz02@yopmail.com",
-            pwd: "THP_2022",
+            email: "gibbz02@yopmail.com",
+            password: "THP_2022",
             age: "44",
             description: "La madre")
 
 User.create(first_name: "Lucie",
             last_name: "VIDAL-DELAIDDE",
-            mail: "gibbz03@yopmail.com",
-            pwd: "THP_2022",
+            email: "gibbz03@yopmail.com",
+            password: "THP_2022",
             age: "7",
             description: "La hija")
 puts "  > #{User.count} users created"
